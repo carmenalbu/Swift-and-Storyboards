@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var labelMessage: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +27,22 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func actionSendMessage(sender: AnyObject) {
+        
+        labelMessage.hidden = false
+        labelMessage.text = messageTextField.text;
+        labelMessage.textColor = UIColor.greenColor();
+        
+        nameLabel.hidden = false
+        nameLabel.text = nameTextField.text;
+        nameLabel.textColor = UIColor.blueColor();
+        
+        nameTextField.text = ""
+        
+        messageTextField.text = ""
+        messageTextField.resignFirstResponder();
+        
+        sendButton.setTitle("Mail sent", forState: UIControlState.Normal);
+    }
 }
 
